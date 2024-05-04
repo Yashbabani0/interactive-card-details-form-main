@@ -35,11 +35,11 @@ input {
   border-radius: 0.5em;
   border: 2px solid var(--Light-grayish-violet);
   color: var(--Light-grayish-violet);
-  outline: none;
+  /* outline: none; */
 }
 input:focus {
   color: var(--Very-dark-violet);
-  border-color: var(--Very-dark-violet);
+  /* border-color: var(--Very-dark-violet); */
 }
 button {
   margin: 1em 0;
