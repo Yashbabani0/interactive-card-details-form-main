@@ -24,15 +24,34 @@ body {
 }
 label {
   text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 input {
   font-size: 1em;
-  padding: 1em;
-  border-radius: 0.3em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
   border: 2px solid var(--Light-grayish-violet);
-}
-input:::placeholder {
   color: var(--Light-grayish-violet);
+  outline: none;
+}
+input:focus {
+  color: var(--Very-dark-violet);
+  border-color: var(--Very-dark-violet);
+}
+button {
+  margin: 1em 0;
+  padding: 0.7em 8.8em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1em;
+  background-color: var(--Very-dark-violet);
+  color: var(--Light-grayish-violet);
+  cursor: pointer;
+  border: none;
+  border-radius: 0.6em;
 }
 @media (min-width: 992px) {
   main {
@@ -88,6 +107,14 @@ input:::placeholder {
   form {
     margin-left: 30%;
   }
+  .cardholder_name input {
+    width: 22em;
+    margin: 1em 0;
+  }
+  .card_number input {
+    width: 22em;
+    margin: 1em 0;
+  }
   .card_dm,
   .card_cvc {
     display: flex;
@@ -95,9 +122,12 @@ input:::placeholder {
   }
   .card_dm_cvc {
     display: flex;
+    gap: 1em;
   }
   .card_dm_cvc input {
-    width: 5em;
+    width: 7em;
+    gap: 1em;
+    margin: 1em 0;
   }
 }
 @media (max-width: 991px) {
