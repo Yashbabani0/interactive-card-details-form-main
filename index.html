@@ -54,6 +54,7 @@
         <form>
           <div class="cardholder_name">
             <label for="Name">Cardholder name</label>
+            <br />
             <input
               type="text"
               id="nameInput"
@@ -63,6 +64,7 @@
           </div>
           <div class="card_number">
             <label for="number">Card Number</label>
+            <br />
             <input
               type="text"
               id="numberInput"
@@ -73,8 +75,10 @@
           <div class="card_dm_cvc">
             <div class="card_dm">
               <label for="exp date">Exp. Date (MM/YY)</label>
-              <input type="text" id="monthInput" placeholder="MM" required />
-              <input type="text" id="yearInput" placeholder="YY" required />
+              <div class="card_dm_input">
+                <input type="text" id="monthInput" placeholder="MM" required />
+                <input type="text" id="yearInput" placeholder="YY" required />
+              </div>
             </div>
             <div class="card_cvc">
               <label for="cvc">CVC</label>

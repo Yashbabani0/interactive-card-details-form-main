@@ -83,17 +83,21 @@ input:::placeholder {
     font-weight: 600;
   }
   .right {
-    width: 60%;
+    min-width: 60%;
   }
   form {
-    margin-left: 20%;
+    margin-left: 30%;
   }
-  .cardholder_name, .card_number, .card_dm, .card_cvc {
+  .card_dm,
+  .card_cvc {
     display: flex;
     flex-direction: column;
   }
   .card_dm_cvc {
     display: flex;
+  }
+  .card_dm_cvc input {
+    width: 5em;
   }
 }
 @media (max-width: 991px) {
