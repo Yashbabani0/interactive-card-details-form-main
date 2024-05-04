@@ -25,6 +25,15 @@ body {
 label {
   text-transform: uppercase;
 }
+input {
+  font-size: 1em;
+  padding: 1em;
+  border-radius: 0.3em;
+  border: 2px solid var(--Light-grayish-violet);
+}
+input:::placeholder {
+  color: var(--Light-grayish-violet);
+}
 @media (min-width: 992px) {
   main {
     display: flex;
@@ -40,10 +49,51 @@ label {
     height: 100vh;
     background-size: cover;
     color: var(--White);
+    position: relative;
   }
-
+  .card_front {
+    position: absolute;
+    top: 15%;
+    left: 45%;
+  }
+  .front_card_content {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+  }
+  h1 {
+    padding-top: 1.5em;
+    font-size: 1.8em;
+    padding-bottom: 0.4em;
+    font-weight: 600;
+  }
+  .card_information {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card_back {
+    position: absolute;
+    top: 55%;
+    left: 60%;
+  }
+  .back_card_content {
+    position: absolute;
+    top: 44%;
+    right: 13%;
+    font-weight: 600;
+  }
   .right {
     width: 60%;
+  }
+  form {
+    margin-left: 20%;
+  }
+  .cardholder_name, .card_number, .card_dm, .card_cvc {
+    display: flex;
+    flex-direction: column;
+  }
+  .card_dm_cvc {
+    display: flex;
   }
 }
 @media (max-width: 991px) {

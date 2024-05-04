@@ -28,27 +28,25 @@
   <body>
     <main>
       <div class="left">
-        <div class="card_show_details">
-          <div class="card_front">
-            <img src="./images/bg-card-front.png" alt="front card" />
-            <div class="front_card_content">
-              <img src="./images/card-logo.svg" alt="" />
-              <h1 class="card_number">0000 0000 0000 0000</h1>
-              <div class="card_information">
-                <span class="cardholder_name"> Jane Appleseed </span>
-                <span>
-                  <span class="card_date">00</span>
-                  /
-                  <span class="card_month">00</span>
-                </span>
-              </div>
+        <div class="card_front">
+          <img src="./images/bg-card-front.png" alt="front card" />
+          <div class="front_card_content">
+            <img src="./images/card-logo.svg" alt="" />
+            <h1 class="card_number">0000 0000 0000 0000</h1>
+            <div class="card_information">
+              <span class="cardholder_name"> Jane Appleseed </span>
+              <span>
+                <span class="card_date">00</span>
+                /
+                <span class="card_month">00</span>
+              </span>
             </div>
           </div>
-          <div class="card_back">
-            <img src="./images/bg-card-back.png" alt="" />
-            <div class="back_card_content">
-              <span class="cvv">000</span>
-            </div>
+        </div>
+        <div class="card_back">
+          <img src="./images/bg-card-back.png" alt="" />
+          <div class="back_card_content">
+            <span class="cvv">000</span>
           </div>
         </div>
       </div>
@@ -56,63 +54,81 @@
         <form>
           <div class="cardholder_name">
             <label for="Name">Cardholder name</label>
-            <input type="text" id="nameInput" placeholder="e.g. Jane Appleseed" required>
+            <input
+              type="text"
+              id="nameInput"
+              placeholder="e.g. Jane Appleseed"
+              required
+            />
           </div>
           <div class="card_number">
             <label for="number">Card Number</label>
-            <input type="text" id="numberInput" placeholder="e.g. 1234 5678 9123 0000" required>
+            <input
+              type="text"
+              id="numberInput"
+              placeholder="e.g. 1234 5678 9123 0000"
+              required
+            />
           </div>
-          <div class="card_dm">
-            <label for="exp date">Exp. Date (MM/YY)</label>
-            <input type="text" id="monthInput" placeholder="MM" required>
-            <input type="text" id="yearInput" placeholder="YY" required>
+          <div class="card_dm_cvc">
+            <div class="card_dm">
+              <label for="exp date">Exp. Date (MM/YY)</label>
+              <input type="text" id="monthInput" placeholder="MM" required />
+              <input type="text" id="yearInput" placeholder="YY" required />
+            </div>
+            <div class="card_cvc">
+              <label for="cvc">CVC</label>
+              <input
+                type="text"
+                id="cvcInput"
+                placeholder="e.g. 123"
+                required
+              />
+            </div>
           </div>
-          <div class="card_cvc">
-            <label for="cvc">CVC</label>
-            <input type="text" id="cvcInput" placeholder="e.g. 123" required>
-          </div>
+
           <button type="submit">Confirm</button>
         </form>
       </div>
     </main>
-  
+
     <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      const nameInput = document.getElementById('nameInput');
-      const numberInput = document.getElementById('numberInput');
-      const monthInput = document.getElementById('monthInput');
-      const yearInput = document.getElementById('yearInput');
-      const cvcInput = document.getElementById('cvcInput');
+      document.addEventListener("DOMContentLoaded", function () {
+        const nameInput = document.getElementById("nameInput");
+        const numberInput = document.getElementById("numberInput");
+        const monthInput = document.getElementById("monthInput");
+        const yearInput = document.getElementById("yearInput");
+        const cvcInput = document.getElementById("cvcInput");
 
-      nameInput.addEventListener('input', function() {
-        this.value = this.value.replace(/[\d]/g, ''); // Allow only letters
-      });
+        nameInput.addEventListener("input", function () {
+          this.value = this.value.replace(/[\d]/g, ""); // Allow only letters
+        });
 
-      numberInput.addEventListener('input', function() {
-        this.value = this.value.replace(/\D/g, ''); // Allow only digits
-        if (this.value.length > 16) this.value = this.value.slice(0, 16); // Limit to 16 digits
-      });
+        numberInput.addEventListener("input", function () {
+          this.value = this.value.replace(/\D/g, ""); // Allow only digits
+          if (this.value.length > 16) this.value = this.value.slice(0, 16); // Limit to 16 digits
+        });
 
-      monthInput.addEventListener('input', function() {
-        this.value = this.value.replace(/\D/g, ''); // Allow only digits
-        if (parseInt(this.value) > 12) this.value = '12'; // Limit to 12
-        if (this.value.length > 2) this.value = this.value.slice(0, 2); // Limit to 2 characters
-      });
+        monthInput.addEventListener("input", function () {
+          this.value = this.value.replace(/\D/g, ""); // Allow only digits
+          if (parseInt(this.value) > 12) this.value = "12"; // Limit to 12
+          if (this.value.length > 2) this.value = this.value.slice(0, 2); // Limit to 2 characters
+        });
 
-      yearInput.addEventListener('input', function() {
-        const currentYear = new Date().getFullYear();
-        let enteredYear = parseInt(this.value);
-        if (isNaN(enteredYear)) enteredYear = currentYear; // If entered value is not a number, set it to current year
-        if (enteredYear < currentYear) enteredYear = currentYear; // If entered year is less than current year, set it to current year
-        if (enteredYear > currentYear + 15) enteredYear = currentYear + 15; // Limit to current year + 15 years
-        this.value = enteredYear.toString();
-      });
+        yearInput.addEventListener("input", function () {
+          const currentYear = new Date().getFullYear();
+          let enteredYear = parseInt(this.value);
+          if (isNaN(enteredYear)) enteredYear = currentYear; // If entered value is not a number, set it to current year
+          if (enteredYear < currentYear) enteredYear = currentYear; // If entered year is less than current year, set it to current year
+          if (enteredYear > currentYear + 15) enteredYear = currentYear + 15; // Limit to current year + 15 years
+          this.value = enteredYear.toString();
+        });
 
-      cvcInput.addEventListener('input', function() {
-        this.value = this.value.replace(/\D/g, ''); // Allow only digits
-        if (this.value.length > 3) this.value = this.value.slice(0, 3); // Limit to 3 digits
+        cvcInput.addEventListener("input", function () {
+          this.value = this.value.replace(/\D/g, ""); // Allow only digits
+          if (this.value.length > 3) this.value = this.value.slice(0, 3); // Limit to 3 digits
+        });
       });
-    });
     </script>
   </body>
 </html>
