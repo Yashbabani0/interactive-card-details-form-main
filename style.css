@@ -22,10 +22,13 @@ body {
   font-size: 18px;
   font-family: "Space Grotesk", sans-serif;
 }
-
+label {
+  text-transform: uppercase;
+}
 @media (min-width: 992px) {
   main {
     display: flex;
+    align-items: center;
   }
 
   .left {
