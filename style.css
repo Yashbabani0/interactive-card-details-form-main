@@ -17,7 +17,7 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   font-size: 18px;
   font-family: "Space Grotesk", sans-serif;
@@ -62,6 +62,7 @@ button {
   main {
     display: flex;
     align-items: center;
+    min-height: 100vh;
   }
 
   .left {
@@ -70,7 +71,7 @@ button {
     background-position: center;
     background-size: cover;
     width: 40%;
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
     color: var(--White);
     position: relative;
@@ -78,7 +79,7 @@ button {
   .card_front {
     position: absolute;
     top: 15%;
-    left: 30%;
+    left: 50%;
   }
   .front_card_content {
     position: absolute;
@@ -97,8 +98,8 @@ button {
   }
   .card_back {
     position: absolute;
-    top: 55%;
-    left: 40%;
+    top: 45%;
+    left: 60%;
   }
   .back_card_content {
     position: absolute;
@@ -130,9 +131,33 @@ button {
     gap: 1em;
   }
   .card_dm_cvc input {
-    width: 7em;
+    width: 4em;
     gap: 1em;
     margin: 1em 0;
   }
-@media (max-width: 991px) {
+  .card_cvc input {
+    width: 7em;
+   }
+@media (min-width: 900px) and (max-width: 1120px) {
+  .card_front {
+    left: 30%;
+  }
+  .card_back {
+    left: 40%;
+  }
+}
+@media (min-width: 375px) and (max-width: 899px) {
+  main {
+    flex-direction: column;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  .left {
+    background-image: url(./images/bg-main-mobile.png);
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 20vh;
+    background-size: contain;
+  }
 }
