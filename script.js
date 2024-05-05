@@ -40,4 +40,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cvcInput = document.getElementById("cvcInput");
   setInputRestrictions(cvcInput, /\D/g, 3); // Allow only digits, limit to 3 digits
+
+  function updateCardDetails() {
+    const inputText = nameInput.value;
+    const numberText = numberInput.value;
+    const monthText = monthInput.value;
+    const yearText = yearInput.value;
+    const cvcText = cvcInput.value;
+    for (let i = 0; i < 16; i++) {
+      if (i < inputText.length) {
+        newContent += numberText[i]; // Replace with input text character
+      } else {
+        // If input text is shorter than 16 characters, fill with zeros
+        newContent += "0";
+      }
+      if ((i + 1) % 4 === 0 && i !== 15) {
+        newContent += " ";
+      }
+      h1.textContent = numberText;
+    }
+  }
 });
