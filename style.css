@@ -100,7 +100,7 @@ button {
   }
   .card_back {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 60%;
   }
   .back_card_content {

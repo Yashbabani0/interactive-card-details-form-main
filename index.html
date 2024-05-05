@@ -69,6 +69,8 @@
               type="text"
               id="numberInput"
               placeholder="e.g. 1234 5678 9123 0000"
+              minlength="16"
+              maxlength="19"
               required
             />
           </div>
@@ -76,8 +78,8 @@
             <div class="card_dm">
               <label for="exp date">Exp. Date (MM/YY)</label>
               <div class="card_dm_input">
-                <input type="text" id="monthInput" placeholder="MM" required />
-                <input type="text" id="yearInput" placeholder="YY" required />
+                <input type="text" id="monthInput" placeholder="MM" minlength="2" maxlength="2" required />
+                <input type="text" id="yearInput" placeholder="YY" minlength="4" maxlength="4" required />
               </div>
             </div>
             <div class="card_cvc">
@@ -86,6 +88,8 @@
                 type="text"
                 id="cvcInput"
                 placeholder="e.g. 123"
+                minlength="3"
+                maxlength="3"
                 required
               />
             </div>

@@ -1,36 +1,43 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const nameInput = document.getElementById("nameInput");
-    const numberInput = document.getElementById("numberInput");
-    const monthInput = document.getElementById("monthInput");
-    const yearInput = document.getElementById("yearInput");
-    const cvcInput = document.getElementById("cvcInput");
+document.addEventListener("DOMContentLoaded", () => {
+  const setInputRestrictions = (inputElement, regex, maxLength) => {
+    inputElement.addEventListener("input", () => {
+      let value = inputElement.value.replace(regex, ""); // Replace unwanted characters
+      if (value.length > maxLength) {
+        value = value.slice(0, maxLength); // Limit input length
+      }
+      // Add spaces after every four characters for card number
+      if (inputElement.id === "numberInput") {
+        value = value.replace(/(.{4})/g, "$1 ").trim();
+      }
+      inputElement.value = value;
 
-    nameInput.addEventListener("input", function () {
-      this.value = this.value.replace(/[\d]/g, ""); // Allow only letters
+      // Check if card number is valid
+      const cardNumber = value.replace(/\s/g, ""); // Remove spaces for validation
+      const errorElement = document.getElementById("cardNumberError");
+      if (cardNumber.length < 16) {
+        errorElement.textContent = "Card number must be 16 digits";
+      } else {
+        errorElement.textContent = "";
+      }
     });
+  };
 
-    numberInput.addEventListener("input", function () {
-      this.value = this.value.replace(/\D/g, ""); // Allow only digits
-      if (this.value.length > 16) this.value = this.value.slice(0, 16); // Limit to 16 digits
-    });
+  const nameInput = document.getElementById("nameInput");
+  setInputRestrictions(nameInput, /[\d]/g, Infinity); // Allow only letters
 
-    monthInput.addEventListener("input", function () {
-      this.value = this.value.replace(/\D/g, ""); // Allow only digits
-      if (parseInt(this.value) > 12) this.value = "12"; // Limit to 12
-      if (this.value.length > 2) this.value = this.value.slice(0, 2); // Limit to 2 characters
-    });
+  const numberInput = document.getElementById("numberInput");
+  setInputRestrictions(numberInput, /\D/g, 19); // Allow only digits, limit to 19 characters (16 digits + 3 spaces)
 
-    yearInput.addEventListener("input", function () {
-      const currentYear = new Date().getFullYear();
-      let enteredYear = parseInt(this.value);
-      if (isNaN(enteredYear)) enteredYear = currentYear; // If entered value is not a number, set it to current year
-      if (enteredYear < currentYear) enteredYear = currentYear; // If entered year is less than current year, set it to current year
-      if (enteredYear > currentYear + 15) enteredYear = currentYear + 15; // Limit to current year + 15 years
-      this.value = enteredYear.toString();
-    });
-
-    cvcInput.addEventListener("input", function () {
-      this.value = this.value.replace(/\D/g, ""); // Allow only digits
-      if (this.value.length > 3) this.value = this.value.slice(0, 3); // Limit to 3 digits
-    });
+  const monthInput = document.getElementById("monthInput");
+  setInputRestrictions(monthInput, /\D/g, 2); // Allow only digits, limit to 2 characters
+  monthInput.addEventListener("input", () => {
+    const month = parseInt(monthInput.value);
+    if (month > 12) monthInput.value = "12"; // Limit to 12
   });
+
+  const yearInput = document.getElementById("yearInput");
+  setInputRestrictions(yearInput, /\D/g, 2); // Allow only digits, limit to 4 characters
+
+  const cvcInput = document.getElementById("cvcInput");
+  setInputRestrictions(cvcInput, /\D/g, 3); // Allow only digits, limit to 3 digits
+});
