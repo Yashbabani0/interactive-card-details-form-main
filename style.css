@@ -15,7 +15,27 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+.error {
+  border: 2px solid ;
+  border-color: var(--Red);
+  color: var(--Red);
+  background-color: hsl(0, 98%, 81%);
+}
+.error:focus {
+  outline: none;
+  border: 2px solid ;
+  border-color: var(--Red);
+  color: var(--Red);
+  background-color: hsl(0, 98%, 81%);
+}
+.errorvalue {
+  color: var(--Red);
+  font-weight: 600;
+  font-size: 0.8em;
+  margin-top: -2%;
+  margin-bottom: 1em;
+  display: none;
+}
 body {
   min-height: 100vh;
   width: 100%;

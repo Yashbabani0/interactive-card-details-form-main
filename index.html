@@ -51,7 +51,7 @@
               placeholder="e.g. Jane Appleseed"
               required
             />
-            <div class="error" id="nameError"></div>
+            <div class="errorvalue" id="nameError">invaild format</div>
           </div>
           <div class="card_number">
             <label for="number">Card Number</label>
@@ -63,7 +63,7 @@
               maxlength="16"
               required
             />
-            <div class="error" id="cardNumberError"></div>
+            <div class="errorvalue" id="cardNumberError">invaild format</div>
           </div>
           <div class="card_dm_cvc">
             <div class="card_dm">
@@ -72,7 +72,7 @@
                 <input type="text" id="monthInput" placeholder="MM" required maxlength="2" maxlength="2" />
                 <input type="text" id="yearInput" placeholder="YY" required minlength="4" maxlength="4" />
               </div>
-              <div class="error" id="monthYearError"></div>
+              <div class="errorvalue" id="monthYearError">invaild format</div>
             </div>
             <div class="card_cvc">
               <label for="cvc">CVC</label>
@@ -84,7 +84,7 @@
                 maxlength="3"
                 required
               />
-              <div class="error" id="cvcError"></div>
+              <div class="errorvalue" id="cvcError">invaild format</div>
             </div>
           </div>
           <button type="submit">Confirm</button>
