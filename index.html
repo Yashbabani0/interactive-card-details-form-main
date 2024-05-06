@@ -60,6 +60,7 @@
               type="text"
               id="numberInput"
               placeholder="e.g. 1234 5678 9123 0000"
+              maxlength="16"
               required
             />
             <div class="error" id="cardNumberError"></div>
@@ -68,8 +69,8 @@
             <div class="card_dm">
               <label for="exp date">Exp. Date (MM/YY)</label>
               <div class="card_dm_input">
-                <input type="text" id="monthInput" placeholder="MM" required />
-                <input type="text" id="yearInput" placeholder="YY" required />
+                <input type="text" id="monthInput" placeholder="MM" required maxlength="2" maxlength="2" />
+                <input type="text" id="yearInput" placeholder="YY" required minlength="4" maxlength="4" />
               </div>
               <div class="error" id="monthYearError"></div>
             </div>
@@ -79,6 +80,8 @@
                 type="text"
                 id="cvcInput"
                 placeholder="e.g. 123"
+                minlength="3"
+                maxlength="3"
                 required
               />
               <div class="error" id="cvcError"></div>
@@ -86,6 +89,12 @@
           </div>
           <button type="submit">Confirm</button>
         </form>
+        <div class="complete" id="completeSection">
+          <img src="./images/icon-complete.svg" alt="" />
+          <h2>Thank you!</h2>
+          <p>We've added your card details</p>
+          <button id="continueBtn">Continue</button>
+        </div>
         <div class="attribution">
           <p>
             Challenge by
@@ -98,12 +107,6 @@
           <p>
             Coded by <a href="https://github.com/Yashbabani0">Yash Babani</a>.
           </p>
-        </div>
-        <div class="complete" id="completeSection">
-          <img src="./images/icon-complete.svg" alt="" />
-          <h2>Thank you!</h2>
-          <p>We've added your card details</p>
-          <button id="continueBtn">Continue</button>
         </div>
       </div>
     </main>

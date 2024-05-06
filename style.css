@@ -87,6 +87,7 @@ button {
     position: absolute;
     top: 15%;
     left: 10%;
+    width: 80%;
   }
   h1 {
     padding-top: 1.5em;
