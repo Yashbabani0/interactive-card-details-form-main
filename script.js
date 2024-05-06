@@ -11,7 +11,7 @@ const viewCardCvc = document.querySelector('.cvv')
 const complete = document.querySelector('.complete')
 const cardForm = document.querySelector('.cardForm')
 
-
+ 
 function setCardNumber (e) {
   let value = e.target.value.replace(/\D/g, '');
   value = value.replace(/(.{4})/g, "$1 ").trim();
